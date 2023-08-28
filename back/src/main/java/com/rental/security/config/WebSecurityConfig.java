@@ -2,7 +2,8 @@ package com.rental.security.config;
 
 
 //import com.security.filters.JwtRequestFilter;
-import com.security.infraestructure.security.filters.JwtRequestFilter;
+//import com.security.infraestructure.security.filters.JwtRequestFilter;
+import com.rental.security.filters.JwtRequestFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,9 +31,9 @@ public class WebSecurityConfig {
         http
                 .csrf().disable() // (2)
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/**").permitAll()
+//                        .requestMatchers("/**").permitAll()
                         .requestMatchers("/publico/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .cors(withDefaults())
