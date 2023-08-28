@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 //import com.security.model.AuthenticationReq;
-import com.security.domain.model.User;
-import com.security.infraestructure.security.model.TokenInfo;
-import com.security.infraestructure.security.service.JwtUtilService;
+//import com.security.domain.model.User;
+//import com.security.infraestructure.security.model.TokenInfo;
+//import com.security.infraestructure.security.service.JwtUtilService;
+import com.rental.entities.User;
+import com.rental.security.model.TokenInfo;
+import com.rental.security.service.JwtUtilService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,14 +92,14 @@ public class SecurityRest {
 
     @PostMapping("/publico/authenticate")
     public ResponseEntity<TokenInfo> authenticate(@RequestBody User user) {
-        logger.info("Autenticando al usuario {}, password {}", user.getEmail(), user.getPassword());
+        logger.info("Autenticando al usuario {}, password {}", user.getUsername(), user.getPassword());
 
         authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(user.getEmail(),
+                new UsernamePasswordAuthenticationToken(user.getUsername(),
                         user.getPassword()));
 
         final UserDetails userDetails = usuarioDetailsService.loadUserByUsername(
-                user.getEmail());
+                user.getUsername());
 
         final String jwt = jwtUtilService.generateToken(userDetails);
 

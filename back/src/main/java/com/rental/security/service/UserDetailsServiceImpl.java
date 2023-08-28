@@ -3,8 +3,10 @@ package com.rental.security.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.security.application.service.UserService;
-import com.security.domain.model.User;
+//import com.security.application.service.UserService;
+//import com.security.domain.model.User;
+import com.rental.entities.User;
+import com.rental.service.impl.UserServiceImpl;
 import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +18,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     private static final Logger logger = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
-    public UserDetailsServiceImpl(UserService usuarioService) {
+    public UserDetailsServiceImpl(UserServiceImpl usuarioService) {
         this.userService = usuarioService;
     }
     @Override
@@ -43,9 +45,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     //public record User(String username, String password, Set<String> roles) {};
 
-    public User gettingUser(String email) {
-        Optional<User> user = userService.getUserByEmail(email);
-        //            logger.info("username: {}, password: {}", user1.getEmail(), user1.getPassword());
+    public User gettingUser(String username) {
+        // Optional<User> user = userService.getUserByEmail(email);
+        // logger.info("username: {}, password: {}", user1.getEmail(), user1.getPassword());
+        Optional<User> user = userService.getUserByUsername(username);
         if(user.isPresent()){
             return user.get();
         } else{
