@@ -1,7 +1,10 @@
 package com.rental.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,5 +23,9 @@ public class User {
     private String lastname;
     private String username;
     private String password;
-    private int rol;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "rol")
+    private UserRol rol;
+    @OneToMany(mappedBy = "owner")
+    private List<House> houses;
 }
