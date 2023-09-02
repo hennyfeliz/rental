@@ -1,0 +1,21 @@
+
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: #dddddd;
+  display: flex;
+  justify-content: center;
+}
+
+footer > div {
+  width: 140px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+
+}
