@@ -1,10 +1,16 @@
-
-@font-face {
+ /* @font-face {
   font-family: 'baloo';
   src: url('./assets/fonts/Baloo.ttf') format('truetype');
   font-display: swap;
-}
+}  */
 
 :root {
   font-family: 'baloo', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  padding: 0;
+  margin: 0;
 }
