@@ -1,0 +1,39 @@
+a {
+  text-decoration: none; /* Elimina la subrayado de los enlaces */
+  color: inherit; /* Hereda el color del texto de su contenedor */
+  cursor: pointer; /* Cambia el cursor a una mano al pasar sobre el enlace */
+}
+
+.explore {
+  /* border: 1px solid black; */
+
+  margin: 40px 100px;
+  .explore-sections {
+    > button {
+      margin: 4px;
+      padding: 0 30px;
+      border-radius: 4px;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    > span:hover {
+      background-color: #acacac;
+    }
+  }
+
+  .houses-list {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    > *:hover {
+      /* border: 1px solid rgb(204, 204, 204); */
+      transform: scale(1.03);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+  }
+}
