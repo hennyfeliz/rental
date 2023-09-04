@@ -1,41 +1,18 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 header {
-  /* width: 100%; */
-  height: 50px;
-  margin-top: 12px;
-  /* background-color: #cfcfcf; */
-  display: flex;
-  justify-content: space-between;
-  padding: 0 300px;
+  /* border: 1px solid black; */
+  padding: 0 200px;
+  background-color: #fff;
+  width: 100%;
 
-  align-items: center;
-  /* align-content: center; */
-
-  .header-central {
-    > * {
-      margin: 0 20px;
-      padding: 6px 22px;
-      font-size: 16px;
-    }
-
-    > *:hover {
-      background-color: #ebebeb;
-    }
-  }
-
-  .header-right{
-    > * {
-      /* margin: 0 20px; */
- 
-
-    }
-
-    > *:hover {
-      background-color: #ebebeb;
+  z-index: 9;
+  position: fixed;
+  /* background-color: #dadada; */
+  height: 60px;
+  > div {
+    align-items: center;
+    display: flex;
+    .house_icon {
+      width: 42px;
     }
   }
 }
