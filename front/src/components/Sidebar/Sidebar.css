@@ -1,0 +1,71 @@
+aside {
+  z-index: 10;
+  border: 1px solid rgb(180, 180, 180);
+  background-color: #fff;
+  position: fixed;
+  width: 50px;
+  height: 100vh;
+  /* background-color: #dadada; */
+  transition: width 0.3s;
+
+  > hr {
+    width: 30px;
+    margin: auto;
+    transition: width 0.3s;
+  }
+
+  > a {
+    > div {
+      display: flex;
+      /* justify-content: center; */
+      position: relative;
+      cursor: pointer;
+      height: 30px;
+      align-content: center;
+      align-items: center;
+      margin: 10px 4px;
+      padding: 4px 0;
+      border-radius: 2px;
+      transition: background-color 0.3s;
+      .section-icon {
+        width: 24px;
+        height: 24px;
+        margin-left: 8px;
+        position: absolute;
+      }
+      > span {
+        display: none;
+        margin-left: 54px;
+      }
+    }
+
+    > div:hover {
+      background-color: #c7c7c7;
+    }
+
+    .logout-button {
+      position: absolute;
+      bottom: 20px;
+    }
+  }
+}
+
+aside:hover {
+  width: 150px;
+  > hr {
+    width: 100px;
+  }
+
+  > a {
+    > div {
+      > span {
+        display: block;
+      }
+    }
+  }
+}
+
+aside:hover ~ div > main {
+  opacity: 0.3;
+}
+
