@@ -13,6 +13,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
+    "sonner": "^0.7.0",
     "tdesign-react": "^1.2.4"
   },
   "devDependencies": {
