@@ -3,9 +3,55 @@
 
 .login {
   display: flex;
+  border-radius: 4px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
   margin: auto;
   margin-top: 200px;
   background-color: #a5a5a5;
   width: 300px;
-  height: 300px;
+  height: 350px;
+
+  > .user-icon-img{
+    width: 100px;
+    height: 100px;
+    background-color: #727272;
+    border-radius: 74px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+
+  > input,
+  .input{
+    width: 200px;
+    padding: 4px 14px;
+    transition: outline .3s;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+  }
+
+  > input:hover {
+    outline: 1px solid black;
+  }
+
+  > button {
+    margin: 20px;
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    transition: background-color .3s;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 8px 54px;
+  }
+
+  > button:hover {
+    background-color: rgb(37, 37, 37);
+  }
+
+
 }
