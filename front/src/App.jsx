@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Toaster />
+        <Toaster />
         <Routes>
           <Route path='/' element={
             <div className="main-container-1">
