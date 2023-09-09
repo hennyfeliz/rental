@@ -13,10 +13,12 @@ export async function localPostData(username, password) {
     body: JSON.stringify(data),
   })
     .then((response) => {
-      return response;
+      return response.json();
+    })
+    .then((data) => {
+      return data;
     })
     .catch((error) => {
       console.error("Error al iniciar sesión:", error);
-      throw error;
     });
 }

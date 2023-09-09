@@ -15,14 +15,13 @@ const Login = () => {
 
   const loginHandler = async () => {
     const response = await localPostData(email, password);
-    console.log(email, password);
-    if(response.status === 200) {
+    console.log(response);
+    if (response) {
       navigate("/")
       toast.success('logeado correctamente...')
       setData(response)
-      console.log(response)
-      console.log(data)
-    } else{
+      localStorage.setItem('token', response.jwtToken)
+    } else {
       toast.error('error de credenciales!')
     }
   }
@@ -31,7 +30,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      <img 
+      <img
         className='user-icon-img'
         alt='user-icon'
         src={userIcon}
