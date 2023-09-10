@@ -4,6 +4,7 @@
 import './Sidebar.css'
 import explore from '../../assets/icons/explore.svg'
 import saved from '../../assets/icons/saved.svg'
+import publish from '../../assets/icons/album-.svg'
 import house from '../../assets/icons/house.svg'
 import { Link } from 'react-router-dom'
 import logout from '../../assets/icons/logout23.svg'
@@ -19,7 +20,7 @@ const Sidebar = () => {
             src={house}
             className="section-icon"
           />
-          <span>Explore</span>
+          <span>Home</span>
         </div>
       </Link>
       <hr />
@@ -41,6 +42,16 @@ const Sidebar = () => {
             className="section-icon"
           />
           <span>Saved</span>
+        </div>
+      </Link>
+      <Link to='/publish'>
+        <div>
+          <img
+            alt='sidebar-section-icon'
+            src={publish}
+            className="section-icon"
+          />
+          <span>Publish</span>
         </div>
       </Link>
       <hr />
