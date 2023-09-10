@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         User user = gettingUser(username);
         //Optional<User> User = UserService.getUserByUsername(username);
 
-        logger.info("Datos del User {}", user);
+//        logger.info("Datos del User {}", user);
 
 
         if (user == null) {
