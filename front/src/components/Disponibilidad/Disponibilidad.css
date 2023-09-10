@@ -1,0 +1,29 @@
+/* Estilos para el contenedor del estado de disponibilidad */
+.estado-disponibilidad {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* Estilos para el punto de señal redonda */
+.punto-señal {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%; /* Esto hace que el punto sea redondo */
+  margin-right: 8px;
+}
+
+/* Estilos para el punto verde cuando está disponible */
+.punto-señal.verde {
+  background-color: green;
+}
+
+/* Estilos para el punto rojo cuando no está disponible */
+.punto-señal.rojo {
+  background-color: red;
+}
+
+/* Estilos para el texto "Disponible" o "No disponible" */
+.estado-disponibilidad span {
+  font-weight: bold;
+}
