@@ -8,31 +8,38 @@ const Explore = () => {
 
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-
-
-    const url = "http://localhost:8080/publico/authenticate"; // Reemplaza esto con la URL de tu servidor de inicio de sesión
+  const getHouses = () => {
+    const jwtToken = localStorage.getItem('token');
+    const url = "http://localhost:8080/api/v1/houses/"; // Reemplaza esto con la URL de tu servidor de inicio de sesión
 
     return fetch(url, {
       method: "GET",
       headers: {
+        'Authorization': `Bearer ${jwtToken}`,
         "Content-Type": "application/json",
       },
     })
       .then((response) => {
-        console.log(response);
-        setData(response.data);
-        return response;
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setData(data);
+        return data;
       })
       .catch((error) => {
         console.error("Error al iniciar sesión:", error);
         throw error;
       });
+  }
+
+  useEffect(() => {
+    getHouses();
   }, [])
 
-  const houses = [
-    {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
-  ]
+  // const houses = [
+  //   {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
+  // ]
 
   return (
     <div className="explore">
@@ -43,7 +50,7 @@ const Explore = () => {
         <Button size="large" variant="outline">For sale</Button>
       </div>
       <div className="houses-list">
-        {houses.map((item, index) => { return (<HouseCard key={index} />) })}
+        {data.map((item, index) => { return (<HouseCard item={item} key={index} />) })}
       </div>
     </div>
   )
