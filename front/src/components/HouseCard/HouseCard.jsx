@@ -1,7 +1,11 @@
+/* eslint-disable react/prop-types */
+
+
 import './HouseCard.css'
 import house_img from '../../assets/img/house-img.webp'
 import { Card, Row, Col, Button, Divider, Dropdown, MessagePlugin } from 'tdesign-react';
 import { ChatIcon, ShareIcon, ThumbUpIcon, Icon } from 'tdesign-icons-react';
+import Disponibilidad from '../Disponibilidad/Disponibilidad';
 
 const options = [
   {
@@ -17,18 +21,22 @@ const options = [
 const clickHandler = (data) => {
   MessagePlugin.success(`选中【${data.value}】`);
 };
-const HouseCard = () => {
+// eslint-disable-next-line react/prop-types
+const HouseCard = ({ item }) => {
 
   return (
     <Card
-      title="Alemanía"
-      subtitle="US $4,000,000.00"
+      title={`${item.address}`}
+      subtitle={`US $${item.rentalInfo.price}`}
       actions={
-        <Dropdown options={options} onClick={clickHandler} minColumnWidth="112">
-          <Button variant="text" shape="square">
-            <Icon name="more" />
-          </Button>
-        </Dropdown>
+        <>
+          {/* <Disponibilidad available={item.available} /> */}
+          <Dropdown options={options} onClick={clickHandler} minColumnWidth="112">
+            <Button variant="text" shape="square">
+              <Icon name="more" />
+            </Button>
+          </Dropdown>
+        </>
       }
       bordered
       // cover="https://tdesign.gtimg.com/site/source/card-demo.png"
@@ -44,13 +52,16 @@ const HouseCard = () => {
           <Divider layout="vertical"></Divider>
           <Col flex="auto" align="middle">
             <Button variant="text">
-              <ChatIcon></ChatIcon>
+              <ShareIcon></ShareIcon>
+
+              {/* <ChatIcon></ChatIcon> */}
             </Button>
           </Col>
           <Divider layout="vertical"></Divider>
           <Col flex="auto" align="middle">
             <Button variant="text">
-              <ShareIcon></ShareIcon>
+              {/* <ShareIcon></ShareIcon> */}
+              <Disponibilidad available={item.available} />
             </Button>
           </Col>
         </Row>

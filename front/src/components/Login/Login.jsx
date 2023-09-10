@@ -21,6 +21,7 @@ const Login = () => {
       toast.success('logeado correctamente...')
       setData(response)
       localStorage.setItem('token', response.jwtToken)
+      console.log(data);
     } else {
       toast.error('error de credenciales!')
     }
