@@ -1,5 +1,6 @@
 package com.rental.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class RentalInfo {
     @Column(name = "publish_date_finish")
     private String publishDateFinish;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "rentalInfo")
     private List<House> houses;
 
