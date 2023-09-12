@@ -1,18 +1,30 @@
-header {
-  /* border: 1px solid black; */
-  padding: 0 200px;
-  background-color: #fff;
-  width: 100%;
 
-  z-index: 9;
-  position: fixed;
-  /* background-color: #dadada; */
+
+header {
   height: 60px;
-  > div {
-    align-items: center;
-    display: flex;
-    .house_icon {
-      width: 42px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 300px;
+  align-items: center;
+  .header-central {
+    > * {
+      margin: 0 10px;
+      padding: 6px 22px;
+      font-size: 16px;
+    }
+
+    > *:hover {
+      background-color: #ebebeb;
+    }
+  }
+
+  .header-right{
+    > * {
+      
+    }
+
+    > *:hover {
+      background-color: #ebebeb;
     }
   }
 }
