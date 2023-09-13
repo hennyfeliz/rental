@@ -1,0 +1,60 @@
+.user-info {
+  position: absolute;
+  outline: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  font-weight: 800;
+  padding: 10px;
+  width: 200px;
+  background-color: #ececec;
+  border-radius: 4px;
+  height: 220px;
+  right: 240px;
+  z-index: 3;
+}
+
+.user-info::before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: -20px;
+  left: 57%;
+  border-top: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #ececec;
+  border-left: 10px solid transparent;
+}
+
+.user-info > span,
+.user-info > div,
+.logout-cont {
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 30px;
+  color: black;
+  transition: background-color 0.3s;
+  padding: 0 7px;
+  margin: 1px;
+}
+
+.user-info > a {
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 4px;
+  height: 30px;
+  color: black;
+  transition: background-color 0.3s;
+  margin: 1px;
+}
+
+.user-info > div:hover,
+.user-info > span:hover,
+.logout-cont:hover {
+  background-color: #bdbdbd;
+}
+
+.logout-cont {
+  display: flex;
+}
