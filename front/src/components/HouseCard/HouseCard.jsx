@@ -4,7 +4,7 @@
 import './HouseCard.css'
 import house_img from '../../assets/img/house-img.webp'
 import { Card, Row, Col, Button, Divider, Dropdown, MessagePlugin } from 'tdesign-react';
-import { ChatIcon, ShareIcon, ThumbUpIcon, Icon } from 'tdesign-icons-react';
+import { ShareIcon, ThumbUpIcon, Icon } from 'tdesign-icons-react';
 import Disponibilidad from '../Disponibilidad/Disponibilidad';
 
 const options = [
@@ -30,7 +30,6 @@ const HouseCard = ({ item }) => {
       subtitle={`US $${item.rentalInfo.price}`}
       actions={
         <>
-          {/* <Disponibilidad available={item.available} /> */}
           <Dropdown options={options} onClick={clickHandler} minColumnWidth="112">
             <Button variant="text" shape="square">
               <Icon name="more" />
@@ -39,7 +38,6 @@ const HouseCard = ({ item }) => {
         </>
       }
       bordered
-      // cover="https://tdesign.gtimg.com/site/source/card-demo.png"
       cover={house_img}
       style={{ width: '400px' }}
       footer={
@@ -53,14 +51,11 @@ const HouseCard = ({ item }) => {
           <Col flex="auto" align="middle">
             <Button variant="text">
               <ShareIcon></ShareIcon>
-
-              {/* <ChatIcon></ChatIcon> */}
             </Button>
           </Col>
           <Divider layout="vertical"></Divider>
           <Col flex="auto" align="middle">
             <Button variant="text">
-              {/* <ShareIcon></ShareIcon> */}
               <Disponibilidad available={item.available} />
             </Button>
           </Col>
