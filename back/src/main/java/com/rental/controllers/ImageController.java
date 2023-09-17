@@ -1,13 +1,19 @@
 package com.rental.controllers;
 
-import com.rental.entities.House;
 import com.rental.entities.Image;
 import com.rental.service.impl.ImageServiceImpl;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.*;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/images")
@@ -22,6 +28,43 @@ public class ImageController {
     @GetMapping("/")
     public ResponseEntity<List<Image>> getAllImages(){
         return new ResponseEntity<>(imageService.getAllImages(), HttpStatus.OK);
+    }
+
+    @GetMapping("/img/{id}")
+    public ResponseEntity<MultiValueMap<String, Object>> getImageByIdd(@PathVariable Long id) throws IOException {
+        // Lógica para obtener la imagen y otras propiedades
+        Optional<Image> imagee = imageService.getImageById(id);
+
+        if (imagee == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Image image = null;
+        if (imagee.isPresent()) {
+            image = imagee.get();
+        }
+
+        // Cargar la imagen desde el sistema de archivos
+        Path imagePath = Paths.get(image.getFilepath());
+        Resource resource = new FileSystemResource(imagePath.toFile());
+
+        if (!resource.exists()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        // Preparar la respuesta
+        MultiValueMap<String, Object> response = new LinkedMultiValueMap<>();
+        response.add("filename", image.getFilename());
+        response.add("filepath", image.getFilepath());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG); // Cambiar según el tipo de imagen
+        headers.setContentDispositionFormData("attachment", image.getFilename());
+        headers.setContentLength(resource.contentLength());
+
+        response.add("image", new HttpEntity<>(resource, headers));
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
