@@ -10,7 +10,7 @@ const Explore = () => {
 
   const getHouses = () => {
     const jwtToken = localStorage.getItem('token');
-    const url = "http://localhost:8080/api/v1/houses/"; // Reemplaza esto con la URL de tu servidor de inicio de sesión
+    const url = "http://localhost:8080/api/v1/houses/"; 
 
     return fetch(url, {
       method: "GET",
@@ -36,10 +36,6 @@ const Explore = () => {
   useEffect(() => {
     getHouses();
   }, [])
-
-  // const houses = [
-  //   {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}
-  // ]
 
   return (
     <div className="explore">

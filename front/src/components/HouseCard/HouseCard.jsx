@@ -38,7 +38,8 @@ const HouseCard = ({ item }) => {
         </>
       }
       bordered
-      cover={house_img}
+      // cover={house_img}
+      cover={item.image.filepath || house_img}
       style={{ width: '400px' }}
       footer={
         <Row align="middle" justify="center">
