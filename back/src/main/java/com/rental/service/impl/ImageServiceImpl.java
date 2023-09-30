@@ -37,10 +37,6 @@ public class ImageServiceImpl implements IImageService {
 
     @Override
     public Optional<Image> updateImage(Long id, Image image) {
-        if(imageRepository.existsById(id)){
-            image.setId(id);
-            return Optional.of(imageRepository.save(image));
-        }
         return Optional.empty();
     }
 

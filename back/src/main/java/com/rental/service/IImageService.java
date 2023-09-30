@@ -12,5 +12,4 @@ public interface IImageService {
     List<Image> getAllImages();
     Optional<Image> updateImage(Long id, Image image);
     boolean deleteImage(Long id);
-
 }
