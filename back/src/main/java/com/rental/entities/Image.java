@@ -9,13 +9,15 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "imagee")
+@Table(name = "images")
 public class Image {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private Long id;
-    private String filename;
-    private String filepath;
+
+    private String name;
+
+    private byte[] imgdata;
 }
