@@ -1,5 +1,87 @@
+.publish {
+  background-color: rgb(238, 238, 238);
+  padding: 40px;
+  border-radius: 20px;
+  margin: 30px 300px;
+  height: 400px;
+}
 
+.publish > div {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 700px;
+}
 
-.publish{
-  /* max-resolution: 400px; */
+.publish > div > span {
+  text-align: start;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.publish > div > input[type="text"] {
+  border-radius: 4px;
+  border: none;
+  padding: 0 14px;
+  font-family: "Onest";
+  outline: none;
+  height: 30px;
+  transition: outline 0.3s;
+}
+
+.publish > div > input[type="text"]:hover,
+.publish > div > input[type="text"]:focus {
+  outline: 1px solid purple; /* Cambia el estilo del borde en hover y onFocus */
+}
+.publish > .available-div {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 700px;
+}
+
+.publish > .available-div > * {
+  margin: 20px;
+}
+
+.publish > .available-div > input[type="checkbox"] {
+  transform: scale(1.5); /* Aumenta el tamaño del checkbox */
+}
+
+.publish > .publish-buttons {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: row;
+}
+
+.publish > .publish-buttons > .button {
+  cursor: pointer;
+  width: 400px;
+  height: 30px;
+  margin: 4px;
+  font-family: "Onest";
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.publish > .publish-buttons > .red {
+  background-color: rgb(253, 143, 143);
+}
+
+.publish > .publish-buttons > .red:hover {
+  background-color: rgb(255, 180, 180);
+}
+
+.publish > .publish-buttons > .green {
+  background-color: rgb(141, 179, 91);
+}
+
+.publish > .publish-buttons > .green:hover {
+  background-color: rgb(161, 184, 132);
 }
