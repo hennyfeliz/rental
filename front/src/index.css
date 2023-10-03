@@ -1,11 +1,17 @@
- /* @font-face {
+ @font-face {
   font-family: 'baloo';
   src: url('./assets/fonts/Baloo.ttf') format('truetype');
   font-display: swap;
-}  */
+} 
+
+@font-face {
+  font-family: 'onest';
+  src: url('./assets/fonts/Onest.ttf') format('truetype');
+  font-display: swap;
+} 
 
 :root {
-  font-family: 'baloo', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'onest', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
