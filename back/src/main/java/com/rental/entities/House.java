@@ -20,7 +20,7 @@ public class House {
     private String address;
     private boolean available;
     @ManyToOne
-    @JoinColumn(name = "imagee")
+    @JoinColumn(name = "images")
     private Image image;
     @JsonIgnore
     @ManyToOne
