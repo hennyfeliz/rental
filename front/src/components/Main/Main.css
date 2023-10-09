@@ -10,22 +10,11 @@ main {
   z-index: 1;
 }
 
-/* ../../assets/img/pexels.webp */
-
 .main-container-landing-page {
-      /* URL de tu imagen de fondo */
       background-image: url('../../assets/img/pexels.webp');
-
-      /* Establece el tamaño de la imagen de fondo para cubrir todo el viewport sin cambiar su tamaño */
       background-size: cover;
-  
-      /* Fija la imagen de fondo para que no se desplace al hacer scroll */
       background-attachment: fixed;
-  
-      /* Centra la imagen de fondo */
       background-position: center;
-  
-      /* Establece la altura igual a la del viewport y el ancho al 100% */
       height: 100%;
       width: 100%;
 }
