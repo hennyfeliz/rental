@@ -2,7 +2,7 @@
 
 
 import './HouseCard.css'
-import house_img from '../../assets/img/house-img.webp'
+// import house_img from '../../assets/img/house-img.webp'
 import { Row, Col, Button, Divider, Dropdown, MessagePlugin } from 'tdesign-react';
 import { ShareIcon, ThumbUpIcon, Icon } from 'tdesign-icons-react';
 import Disponibilidad from '../Disponibilidad/Disponibilidad';
@@ -24,13 +24,27 @@ const clickHandler = (data) => {
 // eslint-disable-next-line react/prop-types
 const HouseCard = ({ item }) => {
 
+  function formatCurrency(amount, currencyCode = 'USD', locale = 'en-US') {
+    try {
+      const formatter = new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: currencyCode,
+      });
+
+      return formatter.format(amount);
+    } catch (error) {
+      console.error('Error formatting currency:', error);
+      return '';
+    }
+  }
+
   return (
     <div>
       <div className='house-card-zero'>
         <div className='card-head'>
           <div>
             <h3>{`${item.address}`}</h3>
-            <span>{`US $${item.rentalInfo.price}`}</span>
+            <span>{`US ${formatCurrency(item.rentalInfo.price)}`}</span>
           </div>
           <div className='dropdown-head-card'>
             <Dropdown options={options} onClick={clickHandler} minColumnWidth="112">
@@ -41,7 +55,7 @@ const HouseCard = ({ item }) => {
           </div>
         </div>
         <div className='card-image'>
-          <img src={house_img} alt="house-img" className='house-image-new-card' />
+          <img src={`data:image/jpeg;base64,${item.image.imgdata}`} alt="house-img" className='house-image-new-card' />
         </div>
         <div className='card-footer'>
           <Row align="middle" justify="center">
@@ -65,57 +79,6 @@ const HouseCard = ({ item }) => {
           </Row>
         </div>
       </div>
-
-      {
-        /*
-
-
-
-
-        <MiniCard />
-        <Card
-          title={`${item.address}`}
-          subtitle={`US $${item.rentalInfo.price}`}
-          actions={
-            <>
-              <Dropdown options={options} onClick={clickHandler} minColumnWidth="112">
-                <Button variant="text" shape="square">
-                  <Icon name="more" />
-                </Button>
-              </Dropdown>
-            </>
-          }
-          bordered
-          // cover={house_img}
-          cover={`data:image/jpeg;base64,${item.image.imgdata || house_img}`}
-          style={{ width: '400px' }}
-          className="max-width-image"
-          footer={
-            <div className='footer-houser-card'>
-              <Row align="middle" justify="center">
-                <Col flex="auto" align="middle">
-                  <Button variant="text">
-                    <ThumbUpIcon></ThumbUpIcon>
-                  </Button>
-                </Col>
-                <Divider layout="vertical"></Divider>
-                <Col flex="auto" align="middle">
-                  <Button variant="text">
-                    <ShareIcon></ShareIcon>
-                  </Button>
-                </Col>
-                <Divider layout="vertical"></Divider>
-                <Col flex="auto" align="middle">
-                  <Button variant="text">
-                    <Disponibilidad available={item.available} />
-                  </Button>
-                </Col>
-              </Row>
-            </div>
-          }
-        ></Card>
-        */
-      }
     </div>
   );
 }
