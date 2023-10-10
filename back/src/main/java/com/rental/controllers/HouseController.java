@@ -48,6 +48,7 @@ public class HouseController {
 
     @PostMapping("/")
     public ResponseEntity<House> createHouse(@RequestBody House house){
+        logger.info(String.valueOf(house));
         return new ResponseEntity<>(houseService.createHouse(house), HttpStatus.CREATED);
     }
 
